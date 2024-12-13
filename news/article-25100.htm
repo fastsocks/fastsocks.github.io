@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://fastsocks.github.io/news/article-25100.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nodejs对数据库的增删改查</title>
+        <meta name="description" content="这里详细聊一下nodejs如果对数据库进行增删改查，OK！为了方便一点，我这里使用的是phpstudypro这个工具的内置数据库来操作，就没有专门安装MySQL数据库这个玩意了。  一、前置准备  首" />
+        <link rel="icon" href="/assets/website/img/fastsocks/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/assets/website/css/fastsocks/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H5R4331M78"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H5R4331M78');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+                        <a class="navbar-brand" href="/">
+                <span>Fast Socks</span>
+            </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="#">关于</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">联系</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <section class="py-5 position-relative">
+            <div class="shape-wrap shape-header"><img src="./assets/img/blob-shape-1.svg" alt=""></div>
+            <div class="container">
+                <div class="row align-items-center text-center text-lg-left mb-5">
+                    <div class="col-md-9 col-lg-6 col-xl-5 mb-4 mb-md-5 mb-lg-0">
+                        <h1 class="h1">Nodejs对数据库的增删改查</h1>
+                        <p class="lead">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                    <div class="col-md-9 col-lg-6 col-xl-7 text-center">
+                        <img src="/assets/website/img/fastsocks/liramail_dribbble.jpg" alt="liramail_dribbble" class="img-fluid rounded">
+                    </div>
+                </div>
+                <!-- end: -->
+            </div>
+        </section>
+        <div class="container">
+            <hr>
+        </div>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>这里详细聊一下nodejs如果对数据库进行增删改查，OK！为了方便一点，我这里使用的是phpstudypro这个工具的内置数据库来操作，就没有专门安装MySQL数据库这个玩意了。</p> <h2> <a id="_1" rel="nofollow"></a>一、前置准备</h2> <ol> <li>首先将phpstudypro这个工具安装完成后打开，启动MySQL数据库<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/cfc9c9b175b6d7f80040759c462b37d1.jpg" alt="Nodejs对数据库的增删改查"> </li> <li>启动MySQL数据库后，再打开数据库工具 -&gt; SQL_Front，第一次打开数据库工具一般是没有下载的，按照提示下载这个工具即可。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/184b62c34b148ee6ec8cbb2edbc4ea60.jpg" alt="Nodejs对数据库的增删改查"> </li> <li>下载完成后，再重新打开这个SQL_Front，就会出现一个登录信息页面，可以自己配置数据库的信息，也可以保持默认。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/2b273760928dd62274a03330b4087968.jpg" alt="Nodejs对数据库的增删改查"> </li> <li>创建一个自己的数据库，除了数据库的名称要自己自定义，其他的选项都保持默认即可，确定后创建出了一个空的数据库。如果要删除该数据库，可以直接点击右边的带有叉号的数据库图标。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/507e8f7c8e633c77293f220f7f2d3e6d.jpg" alt="Nodejs对数据库的增删改查"> </li> <li>创建数据库表，并配置好字段信息，确定即可创建出新的空表。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/f0099e9a3e10f7e33165c3e05583ae13.jpg" alt="Nodejs对数据库的增删改查"> </li> <li>可以直接将数据手动的填入到数据库的表中，就这样完成了对数据库和表的创建，可以投入到使用中了。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/15baf4434e77b3b964f61fa9e25dbe97.jpg" alt="Nodejs对数据库的增删改查"> </li> <li>可以使用SQL编辑器的方式，完成对数据库的操作，在这里测试好了再将sql语句拿出来使用，例如查表<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/6faffc2418959306d845243c22743a85.jpg" alt="Nodejs对数据库的增删改查"> </li> <li>比较常用的sql语句</li> </ol> <pre><code class="prism language-javascript"><span class="token comment">// 1.1查询my_user表中所有的数据</span> select <span class="token operator">*</span> <span class="token keyword">from</span> my_user<span class="token punctuation">;</span> <span class="token comment">// 1.2只查询username,password字段的数据出来</span> select username<span class="token punctuation">,</span>password <span class="token keyword">from</span> my_user<span class="token punctuation">;</span> <span class="token comment">// 1.3查询id为1的数据</span> select <span class="token operator">*</span> <span class="token keyword">from</span> my_user where id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 1.4查询以张开头的用户名</span> select <span class="token operator">*</span> <span class="token keyword">from</span> my_user where username like <span class="token string">'张%'</span> <span class="token comment">// 1.5查询以张结尾的用户名</span> select <span class="token operator">*</span> <span class="token keyword">from</span> my_user where username like <span class="token string">'%张'</span> <span class="token comment">// 1.6查询用户名中包含有张的</span> select <span class="token operator">*</span> <span class="token keyword">from</span> my_user where username like <span class="token string">'%张%'</span> <span class="token comment">// 1.7查询用户名中包含有张的并且性别为男的</span> select <span class="token operator">*</span> <span class="token keyword">from</span> my_user where username like <span class="token string">'%张%'</span> and sex<span class="token operator">=</span><span class="token string">'男'</span> <span class="token comment">// 1.8查询用户名中包含有张的或者行为为男的</span> select <span class="token operator">*</span> <span class="token keyword">from</span> my_user where username like <span class="token string">'%张%'</span> or sex<span class="token operator">=</span><span class="token string">'男'</span> <span class="token comment">// 1.9 分页查询</span> select <span class="token operator">*</span> <span class="token keyword">from</span> my_user limit <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">5</span> <span class="token comment">// 1.10 连表查询</span> select <span class="token operator">*</span> <span class="token keyword">from</span> 表<span class="token number">1</span> inser join 表<span class="token number">2</span> on 表<span class="token number">1.</span>cid <span class="token operator">=</span> 表<span class="token number">2.</span>id   <span class="token comment">// 2.插入一条数据到my_user表中</span> insert into <span class="token function">my_user</span><span class="token punctuation">(</span>username<span class="token punctuation">,</span>password<span class="token punctuation">,</span>sex<span class="token punctuation">)</span> <span class="token function">values</span><span class="token punctuation">(</span><span class="token string">'ls'</span><span class="token punctuation">,</span><span class="token string">'321654'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">)</span>  <span class="token comment">// 3.更新my_user表中id为2数据</span> update my_user <span class="token keyword">set</span> username<span class="token operator">=</span><span class="token string">'ls01'</span> where id<span class="token operator">=</span><span class="token number">2</span>  <span class="token comment">// 4.删除my_user表中id为2的数据</span> <span class="token keyword">delete</span> <span class="token keyword">from</span> my_user where id<span class="token operator">=</span><span class="token number">2</span> </code></pre> <h2> <a id="node_49" rel="nofollow"></a>二、node中进行增删改查</h2> <ol> <li>增</li> </ol> <pre><code class="prism language-javascript"><span class="token comment">// 1.引入mysql模块</span> <span class="token keyword">var</span> mysql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mysql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 2.创建数据库连接</span> <span class="token keyword">var</span> connection <span class="token operator">=</span> mysql<span class="token punctuation">.</span><span class="token function">createConnection</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>     host<span class="token punctuation">:</span> <span class="token string">'localhost'</span><span class="token punctuation">,</span>     user<span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span>     password<span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span>     database<span class="token punctuation">:</span> <span class="token string">'my_test_db'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 3.开启数据库连接</span> connection<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 4.数据库操作</span> connection<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">"insert into my_user(username,password,sex) values ('黑无常','123321','未知')"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>error<span class="token punctuation">,</span> results<span class="token punctuation">,</span> fields<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">if</span> <span class="token punctuation">(</span>error <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'新增成功！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 5.关闭数据库连接</span> connection<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <ol start="2"> <li>删</li> </ol> <pre><code class="prism language-javascript"><span class="token comment">// 1.引入mysql模块</span> <span class="token keyword">var</span> mysql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mysql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 2.创建数据库连接</span> <span class="token keyword">var</span> connection <span class="token operator">=</span> mysql<span class="token punctuation">.</span><span class="token function">createConnection</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>     host<span class="token punctuation">:</span> <span class="token string">'localhost'</span><span class="token punctuation">,</span>     user<span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span>     password<span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span>     database<span class="token punctuation">:</span> <span class="token string">'my_test_db'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 3.开启数据库连接</span> connection<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 4.数据库操作</span> connection<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">"delete from my_user where id=4"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>error<span class="token punctuation">,</span> results<span class="token punctuation">,</span> fields<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">if</span> <span class="token punctuation">(</span>results<span class="token punctuation">.</span>affectedRows <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">;</span>         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'删除成功！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 5.关闭数据库连接</span> connection<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <ol start="3"> <li>查</li> </ol> <pre><code class="prism language-javascript"><span class="token comment">// 1.引入mysql模块</span> <span class="token keyword">var</span> mysql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mysql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 2.创建数据库连接</span> <span class="token keyword">var</span> connection <span class="token operator">=</span> mysql<span class="token punctuation">.</span><span class="token function">createConnection</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>     host<span class="token punctuation">:</span> <span class="token string">'localhost'</span><span class="token punctuation">,</span>     user<span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span>     password<span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span>     database<span class="token punctuation">:</span> <span class="token string">'my_test_db'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 3.开启数据库连接</span> connection<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 4.数据库操作</span> connection<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">"select * from my_user where id=9"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>error<span class="token punctuation">,</span> results<span class="token punctuation">,</span> fields<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">if</span> <span class="token punctuation">(</span>error <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//返回的是数据库中id为9的数据</span>         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>username<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 5.关闭数据库连接</span> connection<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <ol start="4"> <li>改</li> </ol> <pre><code class="prism language-javascript"><span class="token comment">// 1.引入mysql模块</span> <span class="token keyword">var</span> mysql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mysql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 2.创建数据库连接</span> <span class="token keyword">var</span> connection <span class="token operator">=</span> mysql<span class="token punctuation">.</span><span class="token function">createConnection</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>     host<span class="token punctuation">:</span> <span class="token string">'localhost'</span><span class="token punctuation">,</span>     user<span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span>     password<span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span>     database<span class="token punctuation">:</span> <span class="token string">'my_test_db'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 3.开启数据库连接</span> connection<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 4.数据库操作</span> connection<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">"update my_user set username='至尊无常' where id = 9"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>error<span class="token punctuation">,</span> results<span class="token punctuation">,</span> fields<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">if</span> <span class="token punctuation">(</span>results<span class="token punctuation">.</span>affectedRows <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">;</span>         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'更新成功！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 5.关闭数据库连接</span> connection<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <p>以上就是本文的全部内容了，使用nodejs对数据库的基本操作，包括一些比较常用的sql操作。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-24638.htm">济南美联众合动物医院李松大夫怎么样（济南美联众合动物医院李松大夫怎么样啊）</a></p>
+                                        <p>下一个：<a href="/news/article-25102.htm">动物疫苗价格排行前十的有哪些品种呢视频（动物疫苗多少钱一支）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-24169.htm" title="建议穷人养的10种狗50元一只（适合穷养的狗狗）">建议穷人养的10种狗50元一只（适合穷养的狗狗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-node-share.htm" title="11月13日→18.1M/S|2024年最新免费节点Fast Socks订阅链接地址">11月13日→18.1M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23236.htm" title="ubuntu18.04 使用vscode #include＜iostream＞产生蓝色波浪线，未检测路径">ubuntu18.04 使用vscode #include＜iostream＞产生蓝色波浪线，未检测路径</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-node-share.htm" title="10月12日→18.4M/S|2024年最新免费节点Fast Socks订阅链接地址">10月12日→18.4M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-free-subscribe-node.htm" title="10月16日→20M/S|2024年最新免费节点Fast Socks订阅链接地址">10月16日→20M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-25-node-share-links.htm" title="9月25日→22.7M/S|2024年最新免费节点Fast Socks订阅链接地址">9月25日→22.7M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-node-subscribe.htm" title="10月22日→18M/S|2024年最新免费节点Fast Socks订阅链接地址">10月22日→18M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-free-node-subscribe.htm" title="10月11日→20.5M/S|2024年最新免费节点Fast Socks订阅链接地址">10月11日→20.5M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-25-node-share.htm" title="10月25日→22M/S|2024年最新免费节点Fast Socks订阅链接地址">10月25日→22M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-free-subscribe-node.htm" title="11月5日→19.6M/S|2024年最新免费节点Fast Socks订阅链接地址">11月5日→19.6M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <hr class="border-2x color-10 my-2">
+                    </div>
+                    <div class="col-lg-5 mt-4">
+                        <p class="color-7 mb-0 pr-md-11 pr-lg-0">
+                            <a href="/">Fast Socks机场节点订阅官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+
+        <script src="/assets/website/js/frontend/fastsocks/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/fastsocks/app.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

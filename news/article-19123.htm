@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>vue-cli中devServer.proxy相关配置项的使用_vue.js</title>
         <meta name="description" content="目录  devServer.proxy相关配置项的说明  devServer.proxy中的 changeOrigin 参数 devServer.proxy中的 pathRewrite 参数  dev" />
-        <link rel="icon" href="__ADDON__/img/fastsocks/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/fastsocks/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="/assets/website/css/fastsocks/app.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
@@ -68,7 +68,8 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">devServer.proxy相关配置项的说明</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">devServer.proxy中的 changeOrigin 参数</a></li> <li><a href="#_lab2_0_1" rel="nofollow">devServer.proxy中的 pathRewrite 参数</a></li> </ul> <li><a href="#_label1" rel="nofollow">devServer.proxy代理配置详解</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_2" rel="nofollow">.config.js文件中引入依赖项</a></li> <li><a href="#_lab2_1_3" rel="nofollow">更多的代理控制行为</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>devServer.proxy相关配置项的说明</h2> <p>如图：</p> <p style="text-align:center"><img fetchpriority="high" decoding="async" alt="" height="468" src="http://img.555519.xyz/uploads3/20220419/c654dd8247e19c678eadded88b38f3d4.jpg"></p> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>devServer.proxy中的 changeOrigin 参数</h3> <p>changeOrigin 为false时，请求头中host仍然是浏览器发送过来的host;如果设置成true：发送请求头中host会设置成target的值。</p> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>devServer.proxy中的 pathRewrite 参数</h3> <p>本示例中，pathRewrite设置了<strong> '^/lr': ''</strong> ，作用如下:</p> <p>使用代理，首先需要有一个标识，告诉程序这个连接要使用代理，不然的话，可能你的html、css、js、矢量图等静态资源都跑去代理。所以我们要通过一个唯一标识，让接口使用代理，静态资源文件使用本地。</p> <p>proxy中的 <strong>'/lr':{······}</strong>，就是告诉node，我的接口是要以 <strong>/lr</strong> 开头的才使用代理。所有的接口都要写成 <strong>/lr/xx/xx</strong> ，以 <strong>/lr</strong> 开头，最后代理的接口路径路径就是 http://localhost:8080/lirong/lr/xx/xx</p> <p>但是例子中真实的后台数据接口里没有<strong> /lr</strong>，直接就是 http://localhost:8080/lirong/xx/xx ，所以就需要配置 pathRewrite，用<strong>'^/lr': ''</strong> 将<strong> /lr</strong> 去掉，这样既有正确的标识，又能在真实请求接口的时候去掉 <strong>/lr</strong> 。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>devServer.proxy代理配置详解</h2> <p>如果你的前端应用和后端 API 服务器没有运行在同一个主机上，你需要在开发环境下将 API 请求代理到 API 服务器。可以通过 *.config.js 中的 devServer.proxy 选项来配置。</p> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>.config.js文件中引入依赖项</h3> <div class="ay1code"> <pre class="brush:js;">const proxy = require('http-proxy-middleware');</pre> </div> <p>devServer.proxy 可以是一个指向开发环境 API 服务器的字符串</p> <p>//服务器会将任何未知请求 (没有匹配到静态文件的请求) 代理到http://localhost:4000上</p> <div class="ay1code"> <pre class="brush:js;">module.exports = {    devServer: {      proxy: 'http://localhost:4000'    }  }</pre> </div> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>更多的代理控制行为</h3> <div class="ay1code"> <pre class="brush:js;">const proxy = require('http-proxy-middleware');  module.exports = {     devServer:{      host: 'localhost',//target host      port: 8080,      //proxy:{'/api':{}},代理器中设置/api,项目中请求路径为/api的替换为target      proxy:{          '/api':{              target: 'http://192.168.1.30:8085',//代理地址，这里设置的地址会代替axios中设置的baseURL              changeOrigin: true,// 如果接口跨域，需要进行这个参数配置              //ws: true, // proxy websockets              //pathRewrite方法重写url              pathRewrite: {                  '^/api': '/'                   //pathRewrite: {'^/api': '/'} 重写之后url为 http://192.168.1.16:8085/xxxx                  //pathRewrite: {'^/api': '/api'} 重写之后url为 http://192.168.1.16:8085/api/xxxx             }      }}  },  //...  }</pre> </div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">devServer.proxy相关配置项的说明</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">devServer.proxy中的 changeOrigin 参数</a></li> <li><a href="#_lab2_0_1" rel="nofollow">devServer.proxy中的 pathRewrite 参数</a></li> </ul> <li><a href="#_label1" rel="nofollow">devServer.proxy代理配置详解</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_2" rel="nofollow">.config.js文件中引入依赖项</a></li> <li><a href="#_lab2_1_3" rel="nofollow">更多的代理控制行为</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>devServer.proxy相关配置项的说明</h2> <p>如图：</p> <p style="text-align:center"><img fetchpriority="high" decoding="async" alt="" height="468" src="http://img.555519.xyz/uploads3/20220419/c654dd8247e19c678eadded88b38f3d4.jpg"></p> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>devServer.proxy中的 changeOrigin 参数</h3> <p>changeOrigin 为false时，请求头中host仍然是浏览器发送过来的host;如果设置成true：发送请求头中host会设置成target的值。</p> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>devServer.proxy中的 pathRewrite 参数</h3> <p>本示例中，pathRewrite设置了<strong> '^/lr': ''</strong> ，作用如下:</p> <p>使用代理，首先需要有一个标识，告诉程序这个连接要使用代理，不然的话，可能你的html、css、js、矢量图等静态资源都跑去代理。所以我们要通过一个唯一标识，让接口使用代理，静态资源文件使用本地。</p> <p>proxy中的 <strong>'/lr':{······}</strong>，就是告诉node，我的接口是要以 <strong>/lr</strong> 开头的才使用代理。所有的接口都要写成 <strong>/lr/xx/xx</strong> ，以 <strong>/lr</strong> 开头，最后代理的接口路径路径就是 http://localhost:8080/lirong/lr/xx/xx</p> <p>但是例子中真实的后台数据接口里没有<strong> /lr</strong>，直接就是 http://localhost:8080/lirong/xx/xx ，所以就需要配置 pathRewrite，用<strong>'^/lr': ''</strong> 将<strong> /lr</strong> 去掉，这样既有正确的标识，又能在真实请求接口的时候去掉 <strong>/lr</strong> 。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>devServer.proxy代理配置详解</h2> <p>如果你的前端应用和后端 API 服务器没有运行在同一个主机上，你需要在开发环境下将 API 请求代理到 API 服务器。可以通过 *.config.js 中的 devServer.proxy 选项来配置。</p> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>.config.js文件中引入依赖项</h3> <div class="ay1code"> <pre class="brush:js;">const proxy = require('http-proxy-middleware');</pre> </div> <p>devServer.proxy 可以是一个指向开发环境 API 服务器的字符串</p> <p>//服务器会将任何未知请求 (没有匹配到静态文件的请求) 代理到http://localhost:4000上</p> <div class="ay1code"> <pre class="brush:js;">module.exports = {    devServer: {      proxy: 'http://localhost:4000'    }  }</pre> </div> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>更多的代理控制行为</h3> <div class="ay1code"> <pre class="brush:js;">const proxy = require('http-proxy-middleware');  module.exports = {     devServer:{      host: 'localhost',//target host      port: 8080,      //proxy:{'/api':{}},代理器中设置/api,项目中请求路径为/api的替换为target      proxy:{          '/api':{              target: 'http://192.168.1.30:8085',//代理地址，这里设置的地址会代替axios中设置的baseURL              changeOrigin: true,// 如果接口跨域，需要进行这个参数配置              //ws: true, // proxy websockets              //pathRewrite方法重写url              pathRewrite: {                  '^/api': '/'                   //pathRewrite: {'^/api': '/'} 重写之后url为 http://192.168.1.16:8085/xxxx                  //pathRewrite: {'^/api': '/api'} 重写之后url为 http://192.168.1.16:8085/api/xxxx             }      }}  },  //...  }</pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-18692.htm">长沙狗狗领养中心 长沙狗狗领养中心在哪</a></p>
                                         <p>下一个：<a href="/news/article-19124.htm">广州宠物领养平台官网电话是多少号（广州宠物领养微信群）</a></p>
@@ -81,16 +82,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-3-free-node-subscribe-links.htm" title="10月3日→18.5M/S|2024年最新免费节点Fast Socks订阅链接地址">10月3日→18.5M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-node-subscribe.htm" title="10月22日→18M/S|2024年最新免费节点Fast Socks订阅链接地址">10月22日→18M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-16-free-subscribe-node.htm" title="10月16日→20M/S|2024年最新免费节点Fast Socks订阅链接地址">10月16日→20M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-node-subscribe-links.htm" title="10月17日→18.2M/S|2024年最新免费节点Fast Socks订阅链接地址">10月17日→18.2M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-10-node-share-links.htm" title="11月10日→20.9M/S|2024年最新免费节点Fast Socks订阅链接地址">11月10日→20.9M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-1-node-share.htm" title="11月1日→19.7M/S|2024年最新免费节点Fast Socks订阅链接地址">11月1日→19.7M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-18-free-node-subscribe.htm" title="10月18日→18.2M/S|2024年最新免费节点Fast Socks订阅链接地址">10月18日→18.2M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-subscribe-node.htm" title="11月26日→18M/S|2024年最新免费节点Fast Socks订阅链接地址">11月26日→18M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-6-free-node-subscribe-links.htm" title="10月6日→21.7M/S|2024年最新免费节点Fast Socks订阅链接地址">10月6日→21.7M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-node-share-links.htm" title="11月14日→23M/S|2024年最新免费节点Fast Socks订阅链接地址">11月14日→23M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-node-share.htm" title="11月30日→20.3M/S|2024年最新免费节点Fast Socks订阅链接地址">11月30日→20.3M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-node-subscribe-links.htm" title="10月21日→19.5M/S|2024年最新免费节点Fast Socks订阅链接地址">10月21日→19.5M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-node-share-links.htm" title="11月25日→22.4M/S|2024年最新免费节点Fast Socks订阅链接地址">11月25日→22.4M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-4-free-high-speed-nodes.htm" title="10月4日→22.6M/S|2024年最新免费节点Fast Socks订阅链接地址">10月4日→22.6M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-29-node-share-links.htm" title="9月29日→18.5M/S|2024年最新免费节点Fast Socks订阅链接地址">9月29日→18.5M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-high-speed-nodes.htm" title="12月19日→21.6M/S|2024年最新免费节点Fast Socks订阅链接地址">12月19日→21.6M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-node-subscribe-links.htm" title="10月7日→19.5M/S|2024年最新免费节点Fast Socks订阅链接地址">10月7日→19.5M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27424.htm" title="中国兽药十大名牌厂家排名河南有几家（河南十大兽药品牌公司）">中国兽药十大名牌厂家排名河南有几家（河南十大兽药品牌公司）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-24-free-subscribe-node.htm" title="9月24日→22.1M/S|2024年最新免费节点Fast Socks订阅链接地址">9月24日→22.1M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-21422.htm" title="CountDownLatch和CyclicBarrier：如何让多线程步调一致">CountDownLatch和CyclicBarrier：如何让多线程步调一致</a></li>
                     </ul>
     </div>
 </div>
@@ -102,7 +103,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -128,6 +129,15 @@
                     </div>
                     <div class="col-lg-5 mt-4">
                         <p class="color-7 mb-0 pr-md-11 pr-lg-0">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
                             <a href="/">Fast Socks机场节点订阅官网</a> 版权所有 Powered by WordPress
                         </p>
                     </div>

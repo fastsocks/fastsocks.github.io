@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://fastsocks.github.io/news/article-36430.htm" />
@@ -9,9 +9,37 @@
     <title>C语言多文件编程详解</title>
         <meta name="description" content="多文件C语言项目：  1、简单的C语言程序（项目）只有一个C文件(a.c)，编译的时候gcc a.c -o a，执行的时候./a 2、复杂的C语言程序（项目）是由多个C文件构成的。譬如一个项目中包含2" />
         <link rel="icon" href="/assets/website/img/fastsocks/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Fast Socks机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://fastsocks.github.io/news/article-36430.htm" />
+    <meta property="og:site_name" content="Fast Socks机场节点订阅官网" />
+    <meta property="og:title" content="C语言多文件编程详解" />
+    <meta property="og:image" content="https://fastsocks.github.io/uploads/20240906-1/b1ad230d44f8c1bff3fed9946548d8ca.webp" />
+        <meta property="og:release_date" content="2025-01-06T09:49:32" />
+    <meta property="og:updated_time" content="2025-01-06T09:49:32" />
+        <meta property="og:description" content="多文件C语言项目：  1、简单的C语言程序（项目）只有一个C文件(a.c)，编译的时候gcc a.c -o a，执行的时候./a 2、复杂的C语言程序（项目）是由多个C文件构成的。譬如一个项目中包含2" />
+        
     <link rel="stylesheet" href="/assets/website/css/fastsocks/app.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C语言多文件编程详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H5R4331M78"></script>
 <script>
@@ -82,16 +110,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-node-share-links.htm" title="11月25日→22.4M/S|2024年最新免费节点Fast Socks订阅链接地址">11月25日→22.4M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-high-speed-nodes.htm" title="11月23日→22.4M/S|2024年最新免费节点Fast Socks订阅链接地址">11月23日→22.4M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-29289.htm" title="太原小狗免费赠送拜托领养是真的吗（太原宠物狗狗免费领养）">太原小狗免费赠送拜托领养是真的吗（太原宠物狗狗免费领养）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-6-free-node-subscribe-links.htm" title="1月6日→21M/S|2025年最新免费节点Fast Socks订阅链接地址">1月6日→21M/S|2025年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-21-node-share-links.htm" title="11月21日→22.8M/S|2024年最新免费节点Fast Socks订阅链接地址">11月21日→22.8M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-node-subscribe.htm" title="12月8日→18.4M/S|2024年最新免费节点Fast Socks订阅链接地址">12月8日→18.4M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-2-free-node-subscribe-links.htm" title="1月2日→18.8M/S|2025年最新免费节点Fast Socks订阅链接地址">1月2日→18.8M/S|2025年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-node-subscribe.htm" title="12月15日→18.8M/S|2024年最新免费节点Fast Socks订阅链接地址">12月15日→18.8M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-8-node-share.htm" title="1月8日→20.9M/S|2025年最新免费节点Fast Socks订阅链接地址">1月8日→20.9M/S|2025年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-node-subscribe-links.htm" title="1月4日→19M/S|2025年最新免费节点Fast Socks订阅链接地址">1月4日→19M/S|2025年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-19577.htm" title="大型饲料颗粒机价格（大型饲料颗粒机价格是多少钱）">大型饲料颗粒机价格（大型饲料颗粒机价格是多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-free-subscribe-node.htm" title="12月28日→19.9M/S|2024年最新免费节点Fast Socks订阅链接地址">12月28日→19.9M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48767.htm" title="四川动物疫苗生产企业排名（四川动物药业公司排名）">四川动物疫苗生产企业排名（四川动物药业公司排名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-high-speed-nodes.htm" title="11月20日→21M/S|2024年最新免费节点Fast Socks订阅链接地址">11月20日→21M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-node-subscribe-links.htm" title="12月20日→20M/S|2024年最新免费节点Fast Socks订阅链接地址">12月20日→20M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20958.htm" title="动物打了疫苗了被抓还要打针吗（动物打了疫苗了被咬还要打针吗）">动物打了疫苗了被抓还要打针吗（动物打了疫苗了被咬还要打针吗）</a></li>
+                        <li class="py-2"><a href="/news/article-20957.htm" title="东北农大研究生官网（东北农业大学研究生官网）">东北农大研究生官网（东北农业大学研究生官网）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-subscribe-node.htm" title="12月13日→22.4M/S|2024年最新免费节点Fast Socks订阅链接地址">12月13日→22.4M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-node-subscribe.htm" title="11月27日→20.2M/S|2024年最新免费节点Fast Socks订阅链接地址">11月27日→20.2M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-29766.htm" title="成都宠物论坛领养中心（成都领养宠物中心58）">成都宠物论坛领养中心（成都领养宠物中心58）</a></li>
                     </ul>
     </div>
 </div>
@@ -103,16 +131,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://fastsocks.github.io/news/article-24166.htm" />
@@ -9,9 +9,37 @@
     <title>Java类的加载、链接、初始化</title>
         <meta name="description" content="Java 语言的类型可以分为两大类：基本类型（primitive types）和引用类型（reference types），基本类型是由Java 虚拟机预先定义好的。引用类型，Java 将其细分为四种" />
         <link rel="icon" href="/assets/website/img/fastsocks/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Fast Socks机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://fastsocks.github.io/news/article-24166.htm" />
+    <meta property="og:site_name" content="Fast Socks机场节点订阅官网" />
+    <meta property="og:title" content="Java类的加载、链接、初始化" />
+    <meta property="og:image" content="https://fastsocks.github.io/uploads/20240906-1/2a158fb0a8ef682b298343cafb7c3201.webp" />
+        <meta property="og:release_date" content="2024-12-11T09:53:19" />
+    <meta property="og:updated_time" content="2024-12-11T09:53:19" />
+        <meta property="og:description" content="Java 语言的类型可以分为两大类：基本类型（primitive types）和引用类型（reference types），基本类型是由Java 虚拟机预先定义好的。引用类型，Java 将其细分为四种" />
+        
     <link rel="stylesheet" href="/assets/website/css/fastsocks/app.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java类的加载、链接、初始化">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H5R4331M78"></script>
 <script>
@@ -82,16 +110,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-30715.htm" title="一个高频问题：异步操作会创建线程吗？">一个高频问题：异步操作会创建线程吗？</a></li>
-                        <li class="py-2"><a href="/news/article-28349.htm" title="vue项目刷新页面报404">vue项目刷新页面报404</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-1-node-share.htm" title="11月1日→19.7M/S|2024年最新免费节点Fast Socks订阅链接地址">11月1日→19.7M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-24-free-subscribe-node.htm" title="9月24日→22.1M/S|2024年最新免费节点Fast Socks订阅链接地址">9月24日→22.1M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-14-free-node-subscribe.htm" title="9月14日→21.4M/S|2024年最新免费节点Fast Socks订阅链接地址">9月14日→21.4M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-21-node-share-links.htm" title="11月21日→22.8M/S|2024年最新免费节点Fast Socks订阅链接地址">11月21日→22.8M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-node-subscribe.htm" title="12月7日→18.1M/S|2024年最新免费节点Fast Socks订阅链接地址">12月7日→18.1M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-node-subscribe.htm" title="10月22日→18M/S|2024年最新免费节点Fast Socks订阅链接地址">10月22日→18M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-15-node-share-links.htm" title="9月15日→19.5M/S|2024年最新免费节点Fast Socks订阅链接地址">9月15日→19.5M/S|2024年最新免费节点Fast Socks订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-25566.htm" title="天津天照犬业有限公司电话地址（天津天照犬业有限公司电话地址）">天津天照犬业有限公司电话地址（天津天照犬业有限公司电话地址）</a></li>
+                        <li class="py-2"><a href="/news/article-21867.htm" title="宠物领养协议书模板（宠物领养协议书模板电子版）">宠物领养协议书模板（宠物领养协议书模板电子版）</a></li>
+                        <li class="py-2"><a href="/news/article-34048.htm" title="狐狸领养网站大全（狐狸领养网站大全免费）">狐狸领养网站大全（狐狸领养网站大全免费）</a></li>
+                        <li class="py-2"><a href="/news/article-19577.htm" title="大型饲料颗粒机价格（大型饲料颗粒机价格是多少钱）">大型饲料颗粒机价格（大型饲料颗粒机价格是多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-46793.htm" title="上海宠物狗基地（上海宠物狗基地地址）">上海宠物狗基地（上海宠物狗基地地址）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-node-subscribe-links.htm" title="1月4日→19M/S|2025年最新免费节点Fast Socks订阅链接地址">1月4日→19M/S|2025年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-21866.htm" title="SpringBoot之HandlerInterceptor拦截器的使用">SpringBoot之HandlerInterceptor拦截器的使用</a></li>
+                        <li class="py-2"><a href="/news/article-19123.htm" title="vue-cli中devServer.proxy相关配置项的使用_vue.js">vue-cli中devServer.proxy相关配置项的使用_vue.js</a></li>
+                        <li class="py-2"><a href="/news/article-36198.htm" title="动物疫苗龙头股排名（动物疫苗龙头股一览）">动物疫苗龙头股排名（动物疫苗龙头股一览）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-2-free-node-subscribe-links.htm" title="1月2日→18.8M/S|2025年最新免费节点Fast Socks订阅链接地址">1月2日→18.8M/S|2025年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23236.htm" title="ubuntu18.04 使用vscode #include＜iostream＞产生蓝色波浪线，未检测路径">ubuntu18.04 使用vscode #include＜iostream＞产生蓝色波浪线，未检测路径</a></li>
                     </ul>
     </div>
 </div>
@@ -103,19 +131,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

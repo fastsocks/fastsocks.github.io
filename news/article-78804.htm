@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://fastsocks.github.io/news/article-78804.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zookeeper java客户端API常规应用</title>
+        <meta name="description" content="文章目录    Zookeeper   1.初始连接 2.创建、查看节点 3.监听节点 4.设置节点ACL权限 5.第三方客户端ZkClient   实践   配置日志文件 测试代码   问题 解决 " />
+        <link rel="icon" href="/assets/website/img/fastsocks/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Fast Socks机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://fastsocks.github.io/news/article-78804.htm" />
+    <meta property="og:site_name" content="Fast Socks机场节点订阅官网" />
+    <meta property="og:title" content="Zookeeper java客户端API常规应用" />
+    <meta property="og:image" content="https://fastsocks.github.io/uploads/20240906-1/f9a18e373089eb7205051388afe335fa.webp" />
+        <meta property="og:release_date" content="2025-03-22T08:46:13" />
+    <meta property="og:updated_time" content="2025-03-22T08:46:13" />
+        <meta property="og:description" content="文章目录    Zookeeper   1.初始连接 2.创建、查看节点 3.监听节点 4.设置节点ACL权限 5.第三方客户端ZkClient   实践   配置日志文件 测试代码   问题 解决 " />
+        
+    <link rel="stylesheet" href="/assets/website/css/fastsocks/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Zookeeper java客户端API常规应用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H5R4331M78"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H5R4331M78');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+                        <a class="navbar-brand" href="/">
+                <span>Fast Socks</span>
+            </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/client.htm">客户端</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <section class="py-5 position-relative">
+            <div class="shape-wrap shape-header"><img src="./assets/img/blob-shape-1.svg" alt=""></div>
+            <div class="container">
+                <div class="row align-items-center text-center text-lg-left mb-5">
+                    <div class="col-md-9 col-lg-6 col-xl-5 mb-4 mb-md-5 mb-lg-0">
+                        <h1 class="h1">Zookeeper java客户端API常规应用</h1>
+                        <p class="lead">
+                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                        </p>
+                    </div>
+                    <div class="col-md-9 col-lg-6 col-xl-7 text-center">
+                        <img src="/assets/website/img/fastsocks/liramail_dribbble.jpg" alt="liramail_dribbble" class="img-fluid rounded">
+                    </div>
+                </div>
+                <!-- end: -->
+            </div>
+        </section>
+        <div class="container">
+            <hr>
+        </div>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li> <ul> <li><a href="#Zookeeper_1" rel="nofollow">Zookeeper</a></li> <li> <ul> <li><a href="#1_21" rel="nofollow">1.初始连接</a></li> <li><a href="#2_34" rel="nofollow">2.创建、查看节点</a></li> <li><a href="#3_70" rel="nofollow">3.监听节点</a></li> <li><a href="#4ACL_75" rel="nofollow">4.设置节点ACL权限</a></li> <li><a href="#5ZkClient_102" rel="nofollow">5.第三方客户端ZkClient</a></li> </ul> </li> <li><a href="#_110" rel="nofollow">实践</a></li> <li> <ul> <li><a href="#_111" rel="nofollow">配置日志文件</a></li> <li><a href="#_123" rel="nofollow">测试代码</a></li> <li> <ul> <li><a href="#_166" rel="nofollow">问题</a></li> <li><a href="#_183" rel="nofollow">解决</a></li> </ul> </li> </ul> </li> <li><a href="#_191" rel="nofollow">相关学习</a></li> </ul> </li> </ul> </div> <h2><a id="Zookeeper_1" rel="nofollow"></a>Zookeeper</h2> <p>zookeeper 提供了java与C两种语言的客户端。在此学习的就是java客户端。</p> <p>引入最新的maven依赖：</p> <pre><code class="prism language-shell"><span class="token operator">&lt;</span>dependency<span class="token operator">&gt;</span><span class="token operator">&lt;</span>groupId<span class="token operator">&gt;</span>org.apache.zookeeper<span class="token operator">&lt;</span>/groupId<span class="token operator">&gt;</span><span class="token operator">&lt;</span>artifactId<span class="token operator">&gt;</span>zookeeper<span class="token operator">&lt;</span>/artifactId<span class="token operator">&gt;</span><span class="token operator">&lt;</span>version<span class="token operator">&gt;</span>3.5.5<span class="token operator">&lt;</span>/version<span class="token operator">&gt;</span><span class="token operator">&lt;</span>/dependency<span class="token operator">&gt;</span></code></pre> <p><strong>知识点：</strong></p> <ol> <li>初始连接</li> <li>创建、查看节点</li> <li>监听节点</li> <li>设置节点权限</li> <li>第三方客户端ZkClient</li> </ol> <h3><a id="1_21" rel="nofollow"></a>1.初始连接</h3> <p>常规的客户端类是 org.apache.zookeeper.ZooKeeper，实例化该类之后将会自动与集群建立连接。构造参数说明如下：</p> <table> <thead> <tr> <th align="left">参数名称</th> <th align="left">类型</th> <th align="left">说明</th> </tr> </thead> <tbody> <tr> <td align="left">connectString</td> <td align="left">String</td> <td align="left">连接串，包括ip+端口 ,集群模式下用逗号隔开 192.168.0.149:2181,192.168.0.150:2181</td> </tr> <tr> <td align="left">sessionTimeout</td> <td align="left">**int **</td> <td align="left">会话超时时间，该值不能超过服务端所设置的<em>minSessionTimeout 和maxSessionTimeout</em></td> </tr> <tr> <td align="left">watcher</td> <td align="left">Watcher</td> <td align="left">会话监听器，服务端事件将会触该监听</td> </tr> <tr> <td align="left">sessionId</td> <td align="left">**long **</td> <td align="left">自定义会话ID</td> </tr> <tr> <td align="left">sessionPasswd</td> <td align="left"><strong>byte</strong>[]</td> <td align="left">会话密码</td> </tr> <tr> <td align="left">canBeReadOnly</td> <td align="left">**boolean **</td> <td align="left">该连接是否为只读的</td> </tr> <tr> <td align="left">hostProvider</td> <td align="left">HostProvider</td> <td align="left">服务端地址提供者，指示客户端如何选择某个服务来调用，默认采用StaticHostProvider实现</td> </tr> </tbody> </table> <h3><a id="2_34" rel="nofollow"></a>2.创建、查看节点</h3> <p><strong>创建节点</strong><br /> 通过org.apache.zookeeper.ZooKeeper#create()即可创建节点，其参数说明如下：</p> <table> <thead> <tr> <th align="left">参数名称</th> <th align="left">类型</th> <th align="left">说明</th> </tr> </thead> <tbody> <tr> <td align="left">path</td> <td align="left">String</td> <td align="left"></td> </tr> <tr> <td align="left">data</td> <td align="left">byte[]</td> <td align="left"></td> </tr> <tr> <td align="left">acl</td> <td align="left">List</td> <td align="left"></td> </tr> <tr> <td align="left">createMode</td> <td align="left">CreateMode</td> <td align="left"></td> </tr> <tr> <td align="left">cb</td> <td align="left">StringCallback</td> <td align="left"></td> </tr> <tr> <td align="left">ctx</td> <td align="left">Object</td> <td align="left"></td> </tr> </tbody> </table> <p><strong>查看节点：</strong><br /> 通过org.apache.zookeeper.ZooKeeper#getData()即可创建节点，其参数说明如下：</p> <table> <thead> <tr> <th align="left">参数名称</th> <th align="left">类型</th> <th align="left">说明</th> </tr> </thead> <tbody> <tr> <td align="left">path</td> <td align="left">String</td> <td align="left"></td> </tr> <tr> <td align="left">watch</td> <td align="left">**boolean **</td> <td align="left"></td> </tr> <tr> <td align="left">watcher</td> <td align="left">Watcher</td> <td align="left"></td> </tr> <tr> <td align="left">cb</td> <td align="left">DataCallback</td> <td align="left"></td> </tr> <tr> <td align="left">ctx</td> <td align="left">Object</td> <td align="left"></td> </tr> </tbody> </table> <p><strong>查看子节点：</strong><br /> 通过org.apache.zookeeper.ZooKeeper#getChildren()即可获取子节点，其参数说明如下：</p> <table> <thead> <tr> <th align="center">参数名称</th> <th align="center">类型</th> <th align="left">说明</th> </tr> </thead> <tbody> <tr> <td align="center">path</td> <td align="center">String</td> <td align="left"></td> </tr> <tr> <td align="center">watch</td> <td align="center">**boolean **</td> <td align="left"></td> </tr> <tr> <td align="center">watcher</td> <td align="center">Watcher</td> <td align="left"></td> </tr> <tr> <td align="center">cb</td> <td align="center">Children2Callback</td> <td align="left"></td> </tr> <tr> <td align="center">ctx</td> <td align="center">Object</td> <td align="left"></td> </tr> </tbody> </table> <h3><a id="3_70" rel="nofollow"></a>3.监听节点</h3> <p>在getData() 与getChildren()两个方法中可分别设置监听数据变化和子节点变化。通过设置watch为true，当前事件触发时会调用zookeeper()构建函数中Watcher.process()方法。也可以添加watcher参数来实现自定义监听。一般采用后者。<br /> 注：所有的监听都是一次性的，如果要持续监听需要触发后在添加一次监听。</p> <h3><a id="4ACL_75" rel="nofollow"></a>4.设置节点ACL权限</h3> <p>ACL包括结构为scheme?permission（有关ACL的介绍参照第一节课关于ACL的讲解）<br /> 客户端中由org.apache.zookeeper.data.ACL 类表示，类结构如下：</p> <ol> <li>ACL</li> <li>Id <ol> <li>scheme // 对应权限模式scheme <ol> <li>id // 对应模式中的id值</li> </ol> </li> </ol> </li> <li>perms // 对应权限位permission</li> </ol> <p>关于权限位的表示方式：<br /> 每个权限位都是一个唯一数字，将其合时通过或运行生成一个全新的数字即可</p> <pre><code>@InterfaceAudience.Public public interface Perms {     int READ = 1 &lt;&lt; 0;     int WRITE = 1 &lt;&lt; 1;     int CREATE = 1 &lt;&lt; 2;     int DELETE = 1 &lt;&lt; 3;     int ADMIN = 1 &lt;&lt; 4;      int ALL = READ | WRITE | CREATE | DELETE | ADMIN; }</code></pre> <h3><a id="5ZkClient_102" rel="nofollow"></a>5.第三方客户端ZkClient</h3> <p>zkClient 是在zookeeper客户端基础之上封装的，使用上更加友好。主要变化如下：</p> <ul> <li>可以设置持久监听，或删除某个监听</li> <li>可以插入JAVA对象，自动进行序列化和反序列化</li> <li>简化了基本的增删改查操作。</li> </ul> <h2><a id="_110" rel="nofollow"></a>实践</h2> <h3><a id="_111" rel="nofollow"></a>配置日志文件</h3> <p>添加log4j.properties配置文件</p> <pre><code class="prism language-yml"><span class="token comment">### set log levels ###</span> log4j.rootLogger = info<span class="token punctuation">,</span>stdout<span class="token comment">### 输出到控制台 ###</span> log4j.appender.stdout = org.apache.log4j.ConsoleAppender log4j.appender.stdout.Target = System.out log4j.appender.stdout.layout = org.apache.log4j.PatternLayout log4j.appender.stdout.layout.ConversionPattern =  %d<span class="token punctuation">{<!-- --></span>ABSOLUTE<span class="token punctuation">}</span> %5p %c<span class="token punctuation">:</span>%L<span class="token punctuation">-</span> %m%n</code></pre> <h3><a id="_123" rel="nofollow"></a>测试代码</h3> <pre><code class="prism language-java"><span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>KeeperException<span class="token punctuation">;</span><span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>WatchedEvent<span class="token punctuation">;</span><span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>Watcher<span class="token punctuation">;</span><span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>ZooKeeper<span class="token punctuation">;</span><span class="token keyword">import</span> org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Before<span class="token punctuation">;</span><span class="token keyword">import</span> org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test<span class="token punctuation">;</span><span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IOException<span class="token punctuation">;</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">ZooKeeperTest</span><span class="token punctuation">{<!-- --></span>     ZooKeeper zooKeeper<span class="token punctuation">;</span><span class="token annotation punctuation">@Before</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">throws</span> IOException<span class="token punctuation">{<!-- --></span>         String conn<span class="token operator">=</span><span class="token string">"1.1.1.12:2181"</span><span class="token punctuation">;</span>         zooKeeper<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">ZooKeeper</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span><span class="token number">4000</span><span class="token punctuation">,</span><span class="token keyword">new</span><span class="token class-name">Watcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">process</span><span class="token punctuation">(</span>WatchedEvent watchedEvent<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"默认监听器！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>watchedEvent<span class="token punctuation">.</span><span class="token function">getPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token annotation punctuation">@Test</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">testGetData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">throws</span> KeeperException<span class="token punctuation">,</span> InterruptedException<span class="token punctuation">{<!-- --></span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> data<span class="token operator">=</span> zooKeeper<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token string">"/test"</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span><span class="token class-name">String</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/**      * 使用监听器      */</span><span class="token annotation punctuation">@Test</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">testGetData2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">throws</span> KeeperException<span class="token punctuation">,</span> InterruptedException<span class="token punctuation">{<!-- --></span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> data<span class="token operator">=</span> zooKeeper<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token string">"/test"</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span><span class="token class-name">String</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span>Long<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h4><a id="_166" rel="nofollow"></a>问题</h4> <p>出现“Will not attempt to authenticate using SASL (unknown error)”这个错误</p> <pre><code class="prism language-java"><span class="token number">22</span><span class="token operator">:</span><span class="token number">13</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">599</span>  INFO org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>ZooKeeper<span class="token operator">:</span><span class="token number">868</span><span class="token operator">-</span> Initiating client connection<span class="token punctuation">,</span> connectString<span class="token operator">=</span><span class="token number">192.168</span><span class="token number">.220</span><span class="token number">.130</span><span class="token operator">:</span><span class="token number">2181</span> sessionTimeout<span class="token operator">=</span><span class="token number">4000</span> watcher<span class="token operator">=</span>com<span class="token punctuation">.</span>tuling<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>DataTest2$$Lambda$<span class="token number">1</span><span class="token operator">/</span><span class="token number">1973336893</span><span class="token annotation punctuation">@58d25a40</span><span class="token number">22</span><span class="token operator">:</span><span class="token number">13</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">817</span>  INFO org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>common<span class="token punctuation">.</span>X509Util<span class="token operator">:</span><span class="token number">79</span><span class="token operator">-</span> Setting<span class="token operator">-</span>D jdk<span class="token punctuation">.</span>tls<span class="token punctuation">.</span>rejectClientInitiatedRenegotiation<span class="token operator">=</span><span class="token boolean">true</span> to disable client<span class="token operator">-</span>initiated TLS renegotiation<span class="token number">22</span><span class="token operator">:</span><span class="token number">13</span><span class="token operator">:</span><span class="token number">51</span><span class="token punctuation">,</span><span class="token number">633</span>  INFO org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>ClientCnxnSocket<span class="token operator">:</span><span class="token number">237</span><span class="token operator">-</span> jute<span class="token punctuation">.</span>maxbuffer value is<span class="token number">4194304</span> Bytes<span class="token number">22</span><span class="token operator">:</span><span class="token number">13</span><span class="token operator">:</span><span class="token number">51</span><span class="token punctuation">,</span><span class="token number">810</span>  INFO org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>ClientCnxn<span class="token operator">:</span><span class="token number">1653</span><span class="token operator">-</span> zookeeper<span class="token punctuation">.</span>request<span class="token punctuation">.</span>timeout value is<span class="token number">0.</span> feature enabled<span class="token operator">=</span><span class="token number">22</span><span class="token operator">:</span><span class="token number">14</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">209</span>  INFO org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>ClientCnxn<span class="token operator">:</span><span class="token number">1112</span><span class="token operator">-</span> Opening socket connection to server<span class="token number">192.168</span><span class="token number">.220</span><span class="token number">.130</span><span class="token operator">/</span><span class="token number">192.168</span><span class="token number">.220</span><span class="token number">.130</span><span class="token operator">:</span><span class="token number">2181.</span> Will not attempt to authenticate using SASL<span class="token punctuation">(</span>unknown error<span class="token punctuation">)</span><span class="token number">22</span><span class="token operator">:</span><span class="token number">14</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">212</span>  WARN org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>ClientCnxn<span class="token operator">:</span><span class="token number">1190</span><span class="token operator">-</span> Client session timed out<span class="token punctuation">,</span> have not heard from server in<span class="token number">18399</span>ms<span class="token keyword">for</span> sessionid<span class="token number">0x0</span><span class="token number">22</span><span class="token operator">:</span><span class="token number">14</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">213</span>  INFO org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>ClientCnxn<span class="token operator">:</span><span class="token number">1238</span><span class="token operator">-</span> Client session timed out<span class="token punctuation">,</span> have not heard from server in<span class="token number">18399</span>ms<span class="token keyword">for</span> sessionid<span class="token number">0x0</span><span class="token punctuation">,</span> closing socket connection and attempting reconnect Exception in thread<span class="token string">"main"</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>KeeperException$ConnectionLossException<span class="token operator">:</span> KeeperErrorCode<span class="token operator">=</span> ConnectionLoss<span class="token keyword">for</span><span class="token operator">/</span>silas 	at org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>KeeperException<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>KeeperException<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">102</span><span class="token punctuation">)</span> 	at org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>KeeperException<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>KeeperException<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">54</span><span class="token punctuation">)</span> 	at org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>ZooKeeper<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span>ZooKeeper<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">2131</span><span class="token punctuation">)</span> 	at org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>ZooKeeper<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span>ZooKeeper<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">2160</span><span class="token punctuation">)</span> 	at com<span class="token punctuation">.</span>tuling<span class="token punctuation">.</span>zookeeper<span class="token punctuation">.</span>DataTest2<span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span>DataTest2<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">13</span><span class="token punctuation">)</span></code></pre> <h4><a id="_183" rel="nofollow"></a>解决</h4> <p>在C:\Windows\System32\drivers\etc\hosts 文件中添加：</p> <blockquote> <p>192.168.220.130 myzk.com 即可解决</p> </blockquote> <p>192.168.220.130 是zookeeper服务器的ip，myzk.com是域名（可任意填写）</p> <h2><a id="_191" rel="nofollow"></a>相关学习</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_42213903/article/details/99219805"  rel="nofollow">JAVA资深架构师成长路线-&gt;性能直线提升架构技术&gt;Zookeeper</a></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-78118.htm">宠物粮批发市场在哪个位置最好（宠物粮批发市场在哪个位置最好呢）</a></p>
+                                        <p>下一个：<a href="/news/article-78805.htm">广州宠物用品批发进货渠道电话（广州宠物用品批发市场在哪里进货）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-77429.htm" title="给宠物医院的好评怎么写（给宠物医院的好评怎么写简短）">给宠物医院的好评怎么写（给宠物医院的好评怎么写简短）</a></li>
+                        <li class="py-2"><a href="/news/article-57912.htm" title="动物诊疗许可证去哪里办手续（动物诊疗许可证在哪里办理）">动物诊疗许可证去哪里办手续（动物诊疗许可证在哪里办理）</a></li>
+                        <li class="py-2"><a href="/news/article-65009.htm" title="什么平台可以寄宠物（哪里可以寄宠物快递）">什么平台可以寄宠物（哪里可以寄宠物快递）</a></li>
+                        <li class="py-2"><a href="/news/article-43841.htm" title="宠物医院需要几个医生（宠物医院需要几个医生的资质）">宠物医院需要几个医生（宠物医院需要几个医生的资质）</a></li>
+                        <li class="py-2"><a href="/news/article-39384.htm" title="MySQL数据库之数据data 基本操作_Mysql">MySQL数据库之数据data 基本操作_Mysql</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-free-node-subscribe-links.htm" title="1月27日→19.9M/S|2025年最新免费节点Fast Socks订阅链接地址">1月27日→19.9M/S|2025年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-free-high-speed-nodes.htm" title="2月18日→18.1M/S|2025年最新免费节点Fast Socks订阅链接地址">2月18日→18.1M/S|2025年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-free-node-subscribe.htm" title="1月9日→21.2M/S|2025年最新免费节点Fast Socks订阅链接地址">1月9日→21.2M/S|2025年最新免费节点Fast Socks订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-42843.htm" title="动物疫苗管理法律法规最新文件是什么内容（动物疫苗管理法律法规最新文件是什么内容啊）">动物疫苗管理法律法规最新文件是什么内容（动物疫苗管理法律法规最新文件是什么内容啊）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-node-share-links.htm" title="3月17日→22.1M/S|2025年最新免费节点Fast Socks订阅链接地址">3月17日→22.1M/S|2025年最新免费节点Fast Socks订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">71</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <hr class="border-2x color-10 my-2">
+                    </div>
+                    <div class="col-lg-5 mt-4">
+                        <p class="color-7 mb-0 pr-md-11 pr-lg-0">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Fast Socks机场节点订阅官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+
+        <script src="/assets/website/js/frontend/fastsocks/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/fastsocks/app.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
